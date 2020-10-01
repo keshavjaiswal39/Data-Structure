@@ -1,0 +1,49 @@
+#include <stdio.h>
+int main()
+{
+	int n,k,flag=0,l=0; // takin n and k as input 
+  int i,j,count=0,number[50];
+  scanf("%d %d",&n,&k);
+  for(i=2;i<=n;i++)  // scanning through elements in btw 
+  {
+   for(j=2;j<=i/2;j++)
+   {
+    if(i%j==0)
+    {
+     flag=1; // if flag become 1 we will come out
+      break;
+    }
+   }
+    if(flag==0)
+    {
+      number[l]=i; // taking prime no to be added
+      l++;
+    }
+    flag=0; // again set flag as zero and rotate in loop 
+  }
+  for(i=0;i<l;i++)
+  {int k,flag=0;
+   k=number[i]+number[i+1]+1; // applying logic i.e successor of sum of both those numbers would also be a prime number
+    for(j=2;j<=k/2;j++)
+    {
+      if(k%j==0)
+      {
+       flag=1;
+        break;
+      }
+    }
+   if(flag==0)
+   {
+     count++;
+   }
+  }
+  if(count>k)
+  {
+   printf("YES") ;
+  }
+  else
+  {
+   printf("NO"); 
+  }
+	return 0;
+}
